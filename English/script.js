@@ -187,3 +187,16 @@ LoadQuestion()
 btn.addEventListener("click",()=>{
     userAnswer()
 })
+
+
+
+// <-------------------------------------------- POPUP ------------------------------------------->
+const popup_page = document.getElementById("popup");
+const total_attempt = document.getElementById("attempt-questions");
+const correct_attempt = document.getElementById("correct-questions");
+const wrong_attempt = document.getElementById("wrong-questions");
+const close = document.getElementById("closePopup");
+
+function Report(){
+    
+}
