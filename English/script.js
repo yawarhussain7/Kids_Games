@@ -1,5 +1,30 @@
 // Quiz Data
 const vowels = [
+    {
+        image:"images/chair.jpg",
+        question: "What is this ? ",
+        answer: "chair"
+    },
+    {
+        image:"images/chips.jpg",
+        question: "What is this ? ",
+        answer: "chips"
+    },
+     {
+        image:"images/shoes.jpg",
+        question: "What is this ? ",
+        answer: "shoes"
+    },
+     {
+        image:"images/shark.jpg",
+        question: "What is name this animal name ? ",
+        answer: "shark"
+    },
+     {
+        image:"images/thumb.png",
+        question: "What is name of this sign ? ",
+        answer: "thumb"
+    },
     // {
     //     image: "images/acorn.jpg",
     //     question: "What is this?",
@@ -79,6 +104,7 @@ function LoadQuestion(){
     questionText.innerText = vowels[questionIndex].question;
     questionNo.innerText = `Question No: ${questionIndex+1} of ${vowels.length}`;
         
+    // if the question has option list then it will execute
         if(current_index.options){
             answerInput.style.display = "none";
             btn.style.display="none"
@@ -104,6 +130,8 @@ function LoadQuestion(){
         resultStatus.innerText = "Quiz Finished";
         btn.disabled = true;
     }
+
+  
 }
 
 // Calculate the grade
@@ -150,7 +178,7 @@ function CheckOption(option){
         LoadQuestion();
         resetOptions()
     }, 1000);
-    
+   
     
 }
 
@@ -186,6 +214,7 @@ LoadQuestion()
 
 btn.addEventListener("click",()=>{
     userAnswer()
+
 })
 
 
@@ -193,10 +222,25 @@ btn.addEventListener("click",()=>{
 // <-------------------------------------------- POPUP ------------------------------------------->
 const popup_page = document.getElementById("popup");
 const total_attempt = document.getElementById("attempt-questions");
-const correct_attempt = document.getElementById("correct-questions");
+const correct_attempt = document.getElementById("correct-attempt");
 const wrong_attempt = document.getElementById("wrong-questions");
 const close = document.getElementById("closePopup");
 
+
+
 function Report(){
-    
+
+    total_attempt.innerText = vowels.length;
+    correct_attempt.innerText = score;
+    wrong_attempt.innerText = vowels.length - score;
+
+    popup_page.style.display = "flex";
 }
+close.addEventListener("click", () => {
+    popup_page.style.display = "none";
+});
+popup_page.addEventListener("click", (e) => {
+      if (e.target === popup_page) {
+        popup_page.style.display = "none";
+    }
+});
